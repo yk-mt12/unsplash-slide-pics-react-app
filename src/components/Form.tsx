@@ -1,4 +1,9 @@
-const Form = ({ setWord }) => {
+type FormProps = {
+  getPhotoData: (e: any) => void;
+  setWord: any;
+};
+
+const Form = ({ setWord, getPhotoData }: FormProps) => {
   return (
     <form>
       <input
@@ -7,7 +12,9 @@ const Form = ({ setWord }) => {
         placeholder="e.g. cat"
         onChange={(e) => setWord(e.target.value)}
       />
-      <button type="submit">Search</button>
+      <button type="submit" onClick={getPhotoData}>
+        Search
+      </button>
     </form>
   );
 };
